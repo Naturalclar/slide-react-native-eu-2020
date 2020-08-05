@@ -2,29 +2,37 @@ Visual Regression Test in React Native
 
 Hello everyone, my name is Jesse, and I’m here to talk about the Visual Regression Test in React Native.
 
-In this session, I’ll start out by making a little introduction of my self.
-Then I will explain what visual regression test is all about. Then I’ll explain how I’m performing the in React Native, and there will be a little demo to along with it.
+First, let me quickly introduce myself. I’m a front end engineer, working at a company called CureApp, a leading medtech startup in Tokyo, Japan. And in CureApp, we are building a digital therapeucal app using React Native.
+
+I've been working with React Native for the past 2 years or so. I also love helping out with the open source community. I've been helping out with stuff like translations for the documents, and making bunch of fixes to repositories including react-native. I’ve also recently joined as a member of react-native community, where I maintain some of the lean core modules.
+
+But enough of that, lets get right into the session.
+
+In this session, I’ll first go through what visual regression test is all about. Why it is important, and how it can be done in the react-native land. I'll be introducing a tool called Reg-suit, which I use to perform the visual regression test. Then I'll conclude this session with an actual demo of visual regression test using reg-suit.
 
 This presentation will also be available in my github repository along with my demo, in case you’d like to read through my slides.
 
-So let’s get into it.
+So let’s get started.
 
-—
-
-Here’s my introduction.
-
-Again, my name is Jesse.
-I’m a front end engineer currently living in Japan, and I’ve been developing in React Native for the past 2 years or so.
-
-I’ve also recently joined as a member of react-native community, and I maintain some of the lean core modules.
-
-I work at a company called CureApp, which is a leading medical tech company in Japan. I’m working as a tech lead for a medical application, which is made with react-native.
-
-—
+—-
 
 Before I get into the visual regression test, first, let me talk about UI testing.
 
 UI testing is an important way to make sure your UI does not change unexpectedly.
+
+There are many different aspects in UI Testing.
+
+One way to test a React component is by comparing the structure of the React component. This can be done using jest snap shot test.
+
+Interact the way they are expected to. This can be done in react-native using the `@testing-library/react-native`.
+
+The one that we can't forget is to actually test whether the component looks the way you expect it to.
+
+Storybook is a great tool to do that. It lists up all your components in a form of `story`, and you can take a look at each component and verify that it looks the way you expect it to.
+
+But as your project gets bigger and bigger. The harder it gets to check every single component with your bare eyes.
+
+Visual Regression Test is a way to automate the process of checking.
 
 To show how UI testing can be helpful, let me provide you with an hypothetical example.
 
@@ -62,6 +70,7 @@ Storycap with Storybook.
 Storycap is a tool made by the creator of reg-suit, and it crawls through each Stories and takes a screenshot of it.
 
 storybook with react-native-web
+making a component list of react-native using storybook and react-native web is also great, because you don't have to turn on your emulator everytime you want to check how the component looks.
 
 -
 

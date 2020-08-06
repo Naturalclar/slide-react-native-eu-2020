@@ -4,7 +4,8 @@
   "scripts": {
     "start": "mdx-deck deck.mdx",
     "build": "mdx-deck build deck.mdx",
-    "deploy": "now"
+    "deploy": "now",
+    "vercel-build": "yarn build"
   },
   "devDependencies": {
     "code-surfer": "3.1.1",

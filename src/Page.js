@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "#f1f7f7",
-    padding: 24,
+    padding: 48,
   },
 });
 

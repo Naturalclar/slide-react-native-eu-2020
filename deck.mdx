@@ -30,9 +30,10 @@ import RNPlatform from "./images/rn-platform.png";
 import RNActivityIndicator from "./images/rn-activity-indicator.png";
 import RNWebView from "./images/rn-webview.png";
 import RNSafeAreaView from "./images/rn-safe-area-view.png";
-import WhosUsingRN from "./images/who-is-using-rn.png";
 import MyPic from "./images/my-pic.jpg";
 import CureAppLogo from "./images/cureapp-logo.png";
+import TwitterLogo from "./images/twitter-logo.png";
+import GithubLogo from "./images/github-logo.png";
 import {
   View,
   Text,
@@ -40,6 +41,7 @@ import {
   Platform,
   ActivityIndicator,
   StyleSheet,
+  Image,
 } from "react-native-web";
 
 export const theme = {
@@ -107,11 +109,15 @@ export const theme = {
       <Text style={{ color: Colors.baseTextColor }}>
         Visual Regression Test{" "}
       </Text>
-      <Text style={{ color: "#d081c4" }}>for</Text> <Text style={{ color: "#030986" }}>React Native</Text>
+      <Text style={{ color: "#d081c4" }}>for</Text> <Text style={{ color: Colors.secondaryColor }}>React Native</Text>
     </Heading>
     <MarginBottom size={24} />
-    <Paragraph>Jesse Katsumata</Paragraph>
-    <Paragraph>@natural_clar</Paragraph>
+    <Paragraph style={{ color: Colors.secondaryColor }}>
+      Jesse Katsumata
+    </Paragraph>
+    <Paragraph style={{ color: Colors.secondaryColor }}>
+      @natural_clar
+    </Paragraph>
     <MarginBottom size={24} />
     <Paragraph>React Native EU 2020</Paragraph>
   </View>
@@ -120,11 +126,32 @@ export const theme = {
 ---
 
 <Page>
-  <Paragraph>Hi 👋</Paragraph>
-  <Paragraph>I'm Jesse @natural_clar</Paragraph>
-  <Paragraph>Front End Engineer at CureApp, Inc.</Paragraph>
-  <Paragraph>Member of React Native Community</Paragraph>
-  <Paragraph>❤️ OSS</Paragraph>
+  <SubHeading>Hello! 👋</SubHeading>
+  <MarginBottom size={16} />
+  <Paragraph>I'm <Text style={{fontWeight:'600'}}>Jesse Katsumata</Text></Paragraph>
+  <MarginBottom size={8} />
+  <View style={{flexDirection:'row',alignItems:'center'}}>
+  <View style={{width:32,height:32,justifyContent:'center',alignItems:'center',marginRight:8}}>
+    <img src={TwitterLogo} />
+    </View>
+    <Paragraph>@natural_clar</Paragraph>
+  </View>
+  <MarginBottom size={8} />
+  <View style={{flexDirection:'row',alignItems:'center'}}>
+  <View style={{width:32,height:32,justifyContent:'center',alignItems:'center',marginRight:8}}>
+    <img src={GithubLogo} />
+    </View>
+    <Paragraph>@Naturalclar</Paragraph>
+  </View>
+  <MarginBottom size={32} />
+  <Paragraph>Front-End Engineer at <Text style={{fontWeight:'600'}}>CureApp, Inc.</Text></Paragraph>
+  <MarginBottom size={32} />
+  <Paragraph>Member of <Text style={{fontWeight:'600'}}>react-native-community</Text></Paragraph>
+  <MarginBottom size={8} />
+  <Paragraph>maintaining some Lean Core modules</Paragraph>
+  <MarginBottom size={32} />
+  <Paragraph>❤️ OSS & Music</Paragraph>
+
   <View
     style={{
       position: "absolute",

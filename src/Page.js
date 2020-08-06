@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     backgroundColor: "#f1f7f7",
     padding: 48,
+    flex: 1,
   },
 });
 

@@ -20,16 +20,11 @@ import {
   SubHeading,
   Paragraph,
   MarginBottom,
+  Circle,
+  Row,
+  Center,
 } from "./src";
 import ReactNative from "./react-native.png";
-import RNHelloWorld from "./images/rn-hello-world.png";
-import RNHelloWorldStyled from "./images/rn-hello-world-styled.png";
-import RNButton from "./images/rn-button.png";
-import RNButtonStyled from "./images/rn-button-styled.png";
-import RNPlatform from "./images/rn-platform.png";
-import RNActivityIndicator from "./images/rn-activity-indicator.png";
-import RNWebView from "./images/rn-webview.png";
-import RNSafeAreaView from "./images/rn-safe-area-view.png";
 import MyPic from "./images/my-pic.jpg";
 import CureAppLogo from "./images/cureapp-logo.png";
 import TwitterLogo from "./images/twitter-logo.png";
@@ -113,9 +108,6 @@ export const theme = {
     </Heading>
     <MarginBottom size={24} />
     <Paragraph style={{ color: Colors.secondaryColor }}>
-      Jesse Katsumata
-    </Paragraph>
-    <Paragraph style={{ color: Colors.secondaryColor }}>
       @natural_clar
     </Paragraph>
     <MarginBottom size={24} />
@@ -127,31 +119,59 @@ export const theme = {
 
 <Page>
   <SubHeading>Hello! 👋</SubHeading>
-  <MarginBottom size={16} />
-  <Paragraph>I'm <Text style={{fontWeight:'600'}}>Jesse Katsumata</Text></Paragraph>
+  <MarginBottom size={60} />
+  <Paragraph>
+    I'm{" "}
+    <Text style={{ fontWeight: "600" }}>
+      Jesse Katsumata
+    </Text>
+  </Paragraph>
   <MarginBottom size={8} />
-  <View style={{flexDirection:'row',alignItems:'center'}}>
-  <View style={{width:32,height:32,justifyContent:'center',alignItems:'center',marginRight:8}}>
-    <img src={TwitterLogo} />
+  <Row>
+    <View
+      style={{
+        width: 32,
+        height: 32,
+        justifyContent: "center",
+        alignItems: "center",
+        marginRight: 8,
+      }}
+    >
+      <img src={TwitterLogo} />
     </View>
     <Paragraph>@natural_clar</Paragraph>
-  </View>
+  </Row>
   <MarginBottom size={8} />
-  <View style={{flexDirection:'row',alignItems:'center'}}>
-  <View style={{width:32,height:32,justifyContent:'center',alignItems:'center',marginRight:8}}>
-    <img src={GithubLogo} />
+  <Row>
+    <View
+      style={{
+        width: 32,
+        height: 32,
+        justifyContent: "center",
+        alignItems: "center",
+        marginRight: 8,
+      }}
+    >
+      <img src={GithubLogo} />
     </View>
     <Paragraph>@Naturalclar</Paragraph>
-  </View>
-  <MarginBottom size={32} />
-  <Paragraph>Front-End Engineer at <Text style={{fontWeight:'600'}}>CureApp, Inc.</Text></Paragraph>
-  <MarginBottom size={32} />
-  <Paragraph>Member of <Text style={{fontWeight:'600'}}>react-native-community</Text></Paragraph>
+  </Row>
+  <MarginBottom size={60} />
+  <Paragraph>
+    Software Engineer at{" "}
+    <Text style={{ fontWeight: "600" }}>CureApp, Inc.</Text>
+  </Paragraph>
+  <MarginBottom size={60} />
+  <Paragraph>
+    Member of{" "}
+    <Text style={{ fontWeight: "600" }}>
+      react-native-community
+    </Text>
+  </Paragraph>
   <MarginBottom size={8} />
   <Paragraph>maintaining some Lean Core modules</Paragraph>
-  <MarginBottom size={32} />
-  <Paragraph>❤️ OSS & Music</Paragraph>
-
+  <MarginBottom size={60} />
+  <Paragraph>❤️ OSS & Music 🎹</Paragraph>
   <View
     style={{
       position: "absolute",
@@ -181,24 +201,86 @@ export const theme = {
 
 <Page>
   <SubHeading>Agenda</SubHeading>
+  <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        What is a
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Visual Regression
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Test?
+      </Paragraph>
+    </Circle>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        How do I
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        perform it with
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        React Native?
+      </Paragraph>
+    </Circle>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        Demo! 🚀
+      </Paragraph>
+    </Circle>
+  </Row>
 </Page>
 
 ---
 
 <Page>
-  <SubHeading>UI Testing</SubHeading>
+  <Center>
+    <Heading>
+      Visual Regression Test is a form of{" "}
+      <Text style={{ color: Colors.secondaryColor }}>
+        UI Testing
+      </Text>
+    </Heading>
+  </Center>
 </Page>
 
 ---
 
 <Page>
-  <SubHeading>Jest Snapshot</SubHeading>
-</Page>
-
----
-
-<Page>
-  <SubHeading>React Native Testing Library</SubHeading>
+  <SubHeading>Some Types of UI Testing</SubHeading>
+  <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
+    <Circle size={240}>
+      <Paragraph style={{ color: "white" }}>
+        Snapshot
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Testing
+      </Paragraph>
+    </Circle>
+    <Circle size={240}>
+      <Paragraph style={{ color: "white" }}>
+        Assertion
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Testing
+      </Paragraph>
+    </Circle>
+    <Circle
+      style={{ backgroundColor: Colors.secondaryColor }}
+      size={240}
+    >
+      <Paragraph style={{ color: "white" }}>
+        Visual
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Regression
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Testing
+      </Paragraph>
+    </Circle>
+  </Row>
 </Page>
 
 ---
@@ -208,620 +290,68 @@ export const theme = {
 <Step>
 
 ```jsx
+// source: https://jestjs.io/docs/en/tutorial-react-native
+// __tests__/Intro-test.js
+
 import React from "react";
+import Intro from "../Intro";
 
-export const HelloWorld = () => {
-  return (
-    <div className="container">
-      <h1>Hello World!</h1>
-    </div>
-  );
-};
-```
+import renderer from "react-test-renderer";
 
-<div>
-  <h1>Hello World!</h1>
-</div>
-
-</Step>
-
-<Step>
-
-```jsx
-import React from "react";
-import { View, Text } from "react-native";
-
-export const HelloWorld = () => {
-  return (
-    <View>
-      <Text>Hello World!</Text>
-    </View>
-  );
-};
-```
-
-<img src={RNHelloWorld} width="50%" />
-
-</Step>
-
-<Step>
-
-```jsx
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 24,
-    borderWidth: 1,
-    borderColor: "red",
-  },
-  text: {
-    fontSize: 24,
-    color: "blue",
-    fontWeight: "bold",
-  },
+test("renders correctly", () => {
+  const tree = renderer.create(<Intro />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
-
-export const HelloWorld = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Hello World!</Text>
-    </View>
-  );
-};
 ```
-
-<img src={RNHelloWorldStyled} width="50%" />
-
-</Step>
-
-<Step>
-
-```jsx 1:14
-import React from "react";
-
-export const Button = () => {
-  const handleClick = () => {
-    console.log("hello world!");
-  };
-  return (
-    <button onClick={handleClick}>
-      <h1>Click Me!</h1>
-    </button>
-  );
-};
-```
-
-<button>Click Me!</button>
-
-</Step>
-
-<Step>
-
-```jsx 8:10
-import React from "react";
-
-export const Button = () => {
-  const handleClick = () => {
-    console.log("hello world!");
-  };
-  return (
-    <button onClick={handleClick}>
-      <h1>Click Me!</h1>
-    </button>
-  );
-};
-```
-
-<button>Click Me!</button>
-
-</Step>
-
-<Step>
-
-```jsx
-import React from "react";
-import { TouchableOpacity, Text } from "react-native";
-
-export const Button = () => {
-  const handleClick = () => {
-    console.log("hello world!");
-  };
-  return (
-    <TouchableOpacity onPress={handleClick}>
-      <Text>Click Me!</Text>
-    </TouchableOpacity>
-  );
-};
-```
-
-<img src={RNButton} width="50%" />
-
-</Step>
-
-<Step>
-
-```jsx
-import React from 'react'
-import {TouchableOpacity, Text, StyleSheet} from 'react-native'
-
-const styles = {
-  container:{
-    padding: 24,
-    borderRadius: 10,
-    backgroundColor: 'blue',
-  },
-  text: {
-    color: 'white'
-    fontSize: 24,
-    fontWeight: 'bold'
-  }
-}
-
-export const Button = () => {
-  const handleClick = () => {
-    console.log('hello world!')
-  }
-  return (
-    <TouchableOpacity style={styles.container} onPress={handleClick}>
-      <Text style={{styles.text}}>Click Me!</Text>
-    </TouchableOpacity>
-  )
-}
-```
-
-<img src={RNButtonStyled} width="50%" />
-
-</Step>
-
-</CodeSurferColumns>
-
----
-
-## React Native 独自の API
-
----
-
-<CodeSurferColumns themes={[github,vsDark]}>
-
-<Step>
-
-```jsx subtitle="Platform API"
-import React from 'react'
-import {View, Text, Platform} from 'react-native'
-
-export const WhoAmI = () => {
-  const platform = Platform.OS
-  return (
-    <View style={styles.container}>
-      <Text style={{styles.text}}>I am {platform}!</Text>
-    </View>
-  )
-}
-```
-
-<img src={RNPlatform} width="50%" />
-
-</Step>
-
-<Step>
-
-```jsx subtitle="Activity Indicator"
-import React from "react";
-import {
-  View,
-  Text,
-  ActivityIndicator,
-} from "react-native";
-
-export const LoadingScreen = () => {
-  return (
-    <View style={styles.container}>
-      <ActivityIndicator size="large" />
-    </View>
-  );
-};
-```
-
-<img src={RNActivityIndicator} width="50%" />
-
-</Step>
-
-<Step>
-
-```jsx subtitle="SafeAreaView"
-import React from "react";
-import { SafeAreaView, Text } from "react-native";
-
-export const SafeAreaScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text>I'm not in SafeArea</Text>
-      <SafeAreaView style={styles.container}>
-        <Text>I'm In SafeArea!</Text>
-        <View style={{ flex: 1 }} />
-        <Text>I'm In SafeArea!</Text>
-      </SafeAreaView>
-      <Text>I'm not in SafeArea</Text>
-    </View>
-  );
-};
-```
-
-<img src={RNSafeAreaView} width="50%" />
-
-</Step>
-
-<Step>
-
-```jsx subtitle="WebView"
-import React from "react";
-import { SafeAreaView } from "react-native";
-import { WebView } from "react-native-webview";
-
-export const LoadingScreen = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <WebView
-        source={{ uri: "https://reactnative.dev/" }}
-      />
-    </SafeAreaView>
-  );
-};
-```
-
-<img src={RNWebView} width="50%" />
-
-</Step>
-
-</CodeSurferColumns>
-
----
-
-## 他にも様々な Modules があります!
-
-- AsyncStorage
-- Cameraroll
-- Clipboard
-- Bluetooth
-- etc...
-
----
-
-# Getting Started
-
----
-
-<CodeSurferColumns themes={[github,vsDark]}>
-
-<Step>
-
-<Invert>
-  <h1>React Native</h1>
-</Invert>
-
-# Expo
-
-</Step>
-
-<Step>
-
-<Invert>
-  <h2>React Native</h2>
-  <ul>
-    　<li>本家</li>
-    <li>常に最新 Version である</li>
-    <li>様々な Third party module が使える</li>
-    <li>機能制限無し</li>
-    <li>開発するのに Native の知識が必要なこともある</li>
-    <li>Upgrade が少し大変*</li>
-  </ul>
-</Invert>
 
 <div>
-<h2>Expo</h2>
-<ul>
-  <li>簡易版</li>
-  <li>Native の部分を Expo側が行ってくれる</li>
-  <li>JavaScript の知識だけで開発可能</li>
-  <li>OTA Update や Push Notification の様な便利な機能が用意されてる</li>
-  <li>Version が本家より少し古い</li>
-  <li>若干の機能制限がある*</li>
-</ul>
-
-</div>
-</Step>
-
-<Step>
-
-<Invert>
-  <h2>React Native</h2>
-  <ul>
-    <li>
-      <code>npx react-native init AwesomeProject</code>
-    </li>
-  </ul>
-</Invert>
-
-<div>
-<h2>Expo</h2>
-<ul>
-  <li><code>yarn global add expo-cli</code></li>
-  <li><code>expo init AwesomeProject</code></li>
-</ul>
-
+  <h1>Snapshot Testing</h1>
 </div>
 
 </Step>
 
-</CodeSurferColumns>
-
----
-
-## どっちが良いの？
-
-- はじめて触る場合は Expo の方がおすすめ。
-- 個人的には本家 React Native  も十分快適。
-- Expo は必要とあれば Eject できる。
-
----
-
-## React Native をはじめてみよう！
-
----
-
-# React Native Web
-
----
-
-<CodeSurferColumns themes={[github,vsDark]}>
-
 <Step>
 
 ```jsx
-import React from 'react'
-import {TouchableOpacity, Text, StyleSheet} from 'react-native-web'
+// source: https://jestjs.io/docs/en/tutorial-react-native
+// __tests__/__snapshots__/Intro-test.js.snap
 
-const styles = {
-  container:{
-    padding: 24,
-    borderRadius: 10,
-    backgroundColor: 'blue',
-  },
-  text: {
-    color: 'white'
-    fontSize: 24,
-    fontWeight: 'bold'
-  }
-}
-
-export const Button = () => {
-  const handleClick = () => {
-    console.log('hello world!')
-  }
-  return (
-    <TouchableOpacity style={styles.container} onPress={handleClick}>
-      <Text style={{styles.text}}>Click Me!</Text>
-    </TouchableOpacity>
-  )
-}
-```
-
-<TouchableOpacity
-  style={{
-    padding: 24,
-    borderRadius: 10,
-    backgroundColor: "blue",
-  }}
-  onPress={() => {}}
->
+exports[`Intro renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F5FCFF",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }>
   <Text
-    style={{
-      color: "white",
-      fontSize: 24,
-      fontWeight: "bold",
-    }}
-  >
-    Click Me!
+    style={
+      Object {
+        "fontSize": 20,
+        "margin": 10,
+        "textAlign": "center",
+      }
+    }>
+    Welcome to React Native!
   </Text>
-</TouchableOpacity>
-
-</Step>
-
-<Step>
-
-```jsx subtitle="webpack.config.js"
-module.exports = {
-  ...,
-  resolve: {
-    alias: {
-      'react-native$': 'react-native-web'
-    },
-    // React Native web でのみ異なる挙動は .web.js を使う
-    extensions: ['.web.js', '.js','.web.tsx','.tsx']
-  }
-}
-```
-
-### alias: react-native -> react-native-web
-
-</Step>
-
-<Step>
-
-```jsx
-import React from 'react'
-import {TouchableOpacity, Text, StyleSheet} from 'react-native'
-
-const styles = {
-  container:{
-    padding: 24,
-    borderRadius: 10,
-    backgroundColor: 'blue',
-  },
-  text: {
-    color: 'white'
-    fontSize: 24,
-    fontWeight: 'bold'
-  }
-}
-
-export const Button = () => {
-  const handleClick = () => {
-    console.log('hello world!')
-  }
-  return (
-    <TouchableOpacity style={styles.container} onPress={handleClick}>
-      <Text style={{styles.text}}>Click Me!</Text>
-    </TouchableOpacity>
-  )
-}
-```
-
-<TouchableOpacity
-  style={{
-    padding: 24,
-    borderRadius: 10,
-    backgroundColor: "blue",
-  }}
-  onPress={() => {}}
->
   <Text
-    style={{
-      color: "white",
-      fontSize: 24,
-      fontWeight: "bold",
-    }}
-  >
-    Click Me!
-  </Text>
-</TouchableOpacity>
-
-</Step>
-
-<Step>
-
-```diff 2
-
-```
-
-<TouchableOpacity
-  style={{
-    padding: 24,
-    borderRadius: 10,
-    backgroundColor: "blue",
-  }}
-  onPress={() => {}}
->
-  <Text
-    style={{
-      color: "white",
-      fontSize: 24,
-      fontWeight: "bold",
-    }}
-  >
-    Click Me!
-  </Text>
-</TouchableOpacity>
-
-</Step>
-
-<Step>
-
-```jsx subtitle="Platform API"
-import React from 'react'
-import {View, Text, Platform} from 'react-native'
-
-export const WhoAmI = () => {
-  const platform = Platform.OS
-  return (
-    <View style={styles.container}>
-      <Text style={{styles.text}}>I am {platform}!</Text>
-    </View>
-  )
-}
-```
-
-<View style={{ padding: 24 }} onPress={() => {}}>
-  <Text
-    style={{
-      color: "white",
-      fontSize: 24,
-      fontWeight: "bold",
-    }}
-  >
-    I am {Platform.OS}!
+    style={
+      Object {
+        "color": "#333333",
+        "marginBottom": 5,
+        "textAlign": "center",
+      }
+    }>
+    This is a React Native snapshot test.
   </Text>
 </View>
-
-</Step>
-
-<Step>
-
-```jsx subtitle="Activity Indicator"
-import React from "react";
-import {
-  View,
-  Text,
-  ActivityIndicator,
-} from "react-native";
-
-export const LoadingScreen = () => {
-  return (
-    <View style={styles.container}>
-      <ActivityIndicator size="large" />
-    </View>
-  );
-};
+`;
 ```
 
-<ActivityIndicator size="large" />
-
-</Step>
-
-<Step>
-
-```jsx subtitle="WebView...?"
-import React from "react";
-import { SafeAreaView } from "react-native";
-import { WebView } from "react-native-webview";
-
-export const LoadingScreen = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <WebView
-        source={{ uri: "https://reactnative.dev/" }}
-      />
-    </SafeAreaView>
-  );
-};
-```
-
-:thinking_face::thinking_face::thinking_face:
-
-</Step>
-
-</CodeSurferColumns>
-
----
-
-<CodeSurferColumns themes={[github,vsDark]}>
-
-<Step>
-
 <div>
-<h1>React Native for Windows</h1>
-
-https://microsoft.github.io/react-native-windows/
-
-</div>
-
-<div>
-<h1>React Native for Mac</h1>
-
-Developed by Microsoft
-
+  <h1>Snapshot Testing</h1>
 </div>
 
 </Step>
@@ -830,4 +360,8 @@ Developed by Microsoft
 
 ---
 
-THANK YOU
+<Page>
+  <Center>
+    <Heading>THANK YOU</Heading>
+  </Center>
+</Page>

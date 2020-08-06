@@ -7,12 +7,15 @@ const styles = StyleSheet.create({
     fontSize: 60,
     fontWeight: "400",
   },
+  bold: {
+    fontWeight: "500",
+  },
 });
 
-export const Heading = ({ style, children }) => (
+export const Heading = ({ style, bold, children }) => (
   <Text
     accessibilityRole="heading"
-    style={[styles.container, style]}
+    style={[styles.container, bold && styles.bold, style]}
   >
     {children}
   </Text>

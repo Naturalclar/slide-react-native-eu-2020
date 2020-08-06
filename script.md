@@ -28,7 +28,7 @@ Interact the way they are expected to. This can be done in react-native using th
 
 The one that we can't forget is to actually test whether the component looks the way you expect it to.
 
-Storybook is a great tool to do that. It lists up all your components in a form of `story`, and you can take a look at each component and verify that it looks the way you expect it to.
+Storybook is a great tool to do that. Storybook is a tool to help build UI component. It lists up all your components in a form of `story`, and you can take a look at each component and verify that it looks the way you expect it to. So it can be used as a test.
 
 But as your project gets bigger and bigger. The harder it gets to check every single component with your bare eyes.
 

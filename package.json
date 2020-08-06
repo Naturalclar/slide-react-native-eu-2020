@@ -7,14 +7,14 @@
     "deploy": "now"
   },
   "devDependencies": {
-    "code-surfer": "3.1.0",
-    "mdx-deck": "3.0.13",
+    "code-surfer": "3.1.1",
+    "mdx-deck": "4.1.1",
+    "@mdx-deck/themes": "^4.1.0",
     "now": "^18.0.0",
     "puppeteer": "^3.0.1"
   },
-  "name": "starting-react-native-2020",
+  "name": "visual-regression-test-in-react-native",
   "dependencies": {
-    "react-native-web": "^0.12.2",
-    "react-native-web-webview": "^0.2.8"
+    "react-native-web": "^0.12.2"
   }
 }

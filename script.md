@@ -76,11 +76,35 @@ making a component list of react-native using storybook and react-native web is 
 
 Let's get into the Demo.
 
-Here is a little design system I use for my react native projects.
+Here is a storybook for minimal design system repository that I made for my react native projects. It has some base level components that are meant to be used to compose components for a bigger project. For this demo's purpose, I'm going to modify this Round Button Outline component, and create a new pull request to trigger the reg-suit.
+
+So here's the file for the RoundButtonOutline Component. It is a simple button component with set styles that takes in a label for the button to display. I'm going to change the label part to say React Native is Awesome! no matter what label prop it receives. I'm also going change the border radius a little, so that the shape of button will change.
+
+Then I'm going to create a new branch with this change and create a new pull request.
+
+I'll give it a few minutes to get the CI running.
+(Show github action config)
+
+I have a github action setup for this repository, and here I'm run the storycap to take screenshots of all the stories made by the storybook, then it will use the generated screenshot to run the visual regression test.
+
+Let's see how the CI is doing.
+
+It seems like the reg-suit has completed the check.
+It's showing that two stories has been changed. This is because I had story for both light mode and the dark mode. Let's go ahead and look at the diffs.
+
+Here is the whole report provided by reg-suit.
+The changed items always comes to the top, so you can immediately tell which component has the change. You can also take a look at all the other components that hasn't changed.
+
+Here is the report for the RoundButtonOutline component for dark mode that I changed. Reg-suit provides few options to compare the before and after of the component. Here you can slide to see the before and after. You can see that label on the button says React Native is awesome, and also the border radius has changed a bit, so it's more of a square button rather than a round button. You can also compare the components side by side. Or Blend the before and after. Or toggle the component to see what has changed. And finally, you can see the diffs highlighted to know exactly which part has changed.
+
+You can go to the next page and see that the same change has been made for the light mode as well.
+
+This was a small example. So it may not feel like much. But if you have a bigger project with storybook setup for both light and dark mode, you can save a lot of review time by integrating reg-suit.
 
 —
 
-And that wraps up my presentation.
+And that wraps up demo and my presentation.
 
-Thank you for listening to my presentation, and I hope you enjoyed it.
-Here’s my twitter handle incase you’d like to follow me. And the repository for this slide and the demo is also listed here, if you like to check out it.
+The repository for this demo is also written here, incase you'd like to see it in action yourself.
+
+Thank you for listening to my presentation, and I hope some of you enjoyed it. Good bye.

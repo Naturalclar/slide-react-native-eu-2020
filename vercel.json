@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "project": "starting-react-native-2020",
+  "project": "visual-regression-test-in-react-native",
   "routes": [
     {
       "src": "/(.*)",

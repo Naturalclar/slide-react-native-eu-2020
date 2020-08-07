@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Circle = ({ size = 360, style, children }) => {
+export const Circle = ({ size = 300, style, children }) => {
   return (
     <View
       style={[

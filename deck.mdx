@@ -207,10 +207,21 @@ export const theme = {
         What is a
       </Paragraph>
       <Paragraph style={{ color: "white" }}>
-        Visual Regression
+        Visual
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Regression
       </Paragraph>
       <Paragraph style={{ color: "white" }}>
         Test?
+      </Paragraph>
+    </Circle>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        Why is it
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        important?
       </Paragraph>
     </Circle>
     <Circle>
@@ -230,6 +241,14 @@ export const theme = {
       </Paragraph>
     </Circle>
   </Row>
+</Page>
+
+---
+
+<Page>
+  <Center>
+    <Heading>What is a Visual Regression Test?</Heading>
+  </Center>
 </Page>
 
 ---
@@ -260,7 +279,7 @@ export const theme = {
     </Circle>
     <Circle size={240}>
       <Paragraph style={{ color: "white" }}>
-        Assertion
+        Interaction
       </Paragraph>
       <Paragraph style={{ color: "white" }}>
         Testing
@@ -356,7 +375,168 @@ exports[`Intro renders correctly 1`] = `
 
 </Step>
 
+<Step>
+
+```jsx
+// source: https://jestjs.io/docs/en/tutorial-react-native
+// __tests__/Intro-test.js
+
+import React from "react";
+import Intro from "../Intro";
+
+import renderer from "react-test-renderer";
+
+test("renders correctly", () => {
+  const tree = renderer.create(<Intro />).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+```
+
+<div>
+  <h1>Interaction Testing</h1>
+</div>
+
+</Step>
+
+<Step>
+
+```jsx
+// source: https://jestjs.io/docs/en/tutorial-react-native
+// __tests__/__snapshots__/Intro-test.js.snap
+
+exports[`Intro renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#F5FCFF",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "margin": 10,
+        "textAlign": "center",
+      }
+    }>
+    Welcome to React Native!
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#333333",
+        "marginBottom": 5,
+        "textAlign": "center",
+      }
+    }>
+    This is a React Native snapshot test.
+  </Text>
+</View>
+`;
+```
+
+<div>
+  <h1>Interaction Testing</h1>
+</div>
+
+</Step>
+
 </CodeSurferColumns>
+
+---
+
+<Page>
+  <SubHeading>Visual Regression Testing</SubHeading>
+</Page>
+
+---
+
+<Page>
+  <Center>
+    <Heading>Why is it important?</Heading>
+  </Center>
+</Page>
+
+---
+
+<CodeSurferColumns themes={[github,vsDark]}>
+<Step>
+
+<h1>Foo</h1>
+
+<h1>Bar</h1>
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+<Page>
+  <SubHeading>Other Reasons</SubHeading>
+  <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
+    <Circle size={360}>
+      <Paragraph style={{ color: "white" }}>
+        Upgrade
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Component Library
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        with confidence 💪
+      </Paragraph>
+    </Circle>
+    <Circle size={360}>
+      <Paragraph style={{ color: "white" }}>Test</Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Dark Mode 🌙
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        with ease
+      </Paragraph>
+    </Circle>
+  </Row>
+</Page>
+
+---
+
+<Page>
+  <Center>
+    <Heading>
+      How do I perform it with React Native?
+    </Heading>
+  </Center>
+</Page>
+
+---
+
+<Page>
+  <SubHeading>Reg-Suit</SubHeading>
+</Page>
+
+---
+
+<Page>
+  <SubHeading>Storycap</SubHeading>
+</Page>
+
+---
+
+<Page>
+  <SubHeading>Storybook + React Native Web</SubHeading>
+  <SubHeading>Faster Build</SubHeading>
+</Page>
+
+---
+
+<Page>
+  <Center>
+    <Heading>DEMO</Heading>
+  </Center>
+</Page>
 
 ---
 

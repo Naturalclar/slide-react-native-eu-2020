@@ -29,6 +29,12 @@ import MyPic from "./images/my-pic.jpg";
 import CureAppLogo from "./images/cureapp-logo.png";
 import TwitterLogo from "./images/twitter-logo.png";
 import GithubLogo from "./images/github-logo.png";
+import VisRegDiff from "./images/vis-reg-diff.png";
+import VisRegSide from "./images/vis-reg-diff-2.png";
+import VisRegReport from "./images/vis-reg-report.png";
+import RegSuitLogo from "./images/reg-suit-logo.jpg";
+import StorybookLogo from "./images/storybook-logo.svg";
+
 import {
   View,
   Text,
@@ -378,64 +384,32 @@ exports[`Intro renders correctly 1`] = `
 <Step>
 
 ```jsx
-// source: https://jestjs.io/docs/en/tutorial-react-native
-// __tests__/Intro-test.js
+// source: https://callstack.com/blog/react-native-testing-library-with-redux/
+// SignUpScreen.test.tsx
 
-import React from "react";
-import Intro from "../Intro";
+test('User cannot SignUp with wrong credentials', async () => {
+  mockSignUpApi.mockImplementationOnce(() =>
+    Promise.resolve({
+      status: 401,
+      data: {
+        error: { 'Invalid username or password' }
+      }
+    }),
+  );
 
-import renderer from "react-test-renderer";
+  const screen = renderSignUpScreen();
 
-test("renders correctly", () => {
-  const tree = renderer.create(<Intro />).toJSON();
-  expect(tree).toMatchSnapshot();
+  fireEvent.changeText(screen.getByPlaceholder(/Username/i), 'user@callstack.com');
+  fireEvent.changeText(screen.getByPlaceholder(/Password/i), 'Incorrect Password');
+  fireEvent.press(screen.getByText('SignUp'));
+
+  expect(mockSignUpApi).toHaveBeenCalledTimes(1);
+  expect(mockSignUpApi).toHaveBeenCalledWith({
+    username: 'user@callstack.com',
+    password: 'Incorrect Password',
+  });
+  expect(await screen.findByText('Invalid username or password')).toBeTruthy();
 });
-```
-
-<div>
-  <h1>Interaction Testing</h1>
-</div>
-
-</Step>
-
-<Step>
-
-```jsx
-// source: https://jestjs.io/docs/en/tutorial-react-native
-// __tests__/__snapshots__/Intro-test.js.snap
-
-exports[`Intro renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#F5FCFF",
-      "flex": 1,
-      "justifyContent": "center",
-    }
-  }>
-  <Text
-    style={
-      Object {
-        "fontSize": 20,
-        "margin": 10,
-        "textAlign": "center",
-      }
-    }>
-    Welcome to React Native!
-  </Text>
-  <Text
-    style={
-      Object {
-        "color": "#333333",
-        "marginBottom": 5,
-        "textAlign": "center",
-      }
-    }>
-    This is a React Native snapshot test.
-  </Text>
-</View>
-`;
 ```
 
 <div>
@@ -450,6 +424,43 @@ exports[`Intro renders correctly 1`] = `
 
 <Page>
   <SubHeading>Visual Regression Testing</SubHeading>
+  <MarginBottom size={60} />
+  <View style={{ position: "relative", flex: 1 }}>
+    <View
+      style={{
+        position: "absolute",
+        height: 240,
+        width: '20%',
+        top: "0",
+        left: "0",
+      }}
+    >
+      <img src={VisRegDiff} width="50%" />
+    </View>
+    <View
+      style={{
+        position: "absolute",
+        height: 240,
+        width: '50%',
+        top: "0",
+        right: "10%",
+      }}
+    >
+      <img src={VisRegSide} width="50%" />
+    </View>
+    <View
+      style={{
+        position: "absolute",
+        height: 240,
+        width: '35%',
+        left: "0",
+        bottom: "10%",
+      }}
+    >
+      <img src={VisRegReport} width="50%" />
+    </View>
+
+  </View>
 </Page>
 
 ---
@@ -465,9 +476,329 @@ exports[`Intro renders correctly 1`] = `
 <CodeSurferColumns themes={[github,vsDark]}>
 <Step>
 
-<h1>Foo</h1>
+```jsx subtitle="SignUp Page"
+// SignUpPage.tsx
+import React from "react";
+import { Page, SignUpForm, PrimaryButton } from "../src";
 
-<h1>Bar</h1>
+export const SignUpPage = () => {
+  return (
+    <Page>
+      <SignUpForm />
+      <PrimaryButton label={"SignUp"} onPress={SignUp} />
+    </Page>
+  );
+};
+```
+
+<View
+  style={{
+    width: 320,
+    height: 480,
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 5,
+    padding: 24,
+    alignItems: "center",
+    justifyContent: "space-between",
+  }}
+>
+  <View style={{ alignSelf: "stretch" }}>
+    <Text style={{ color: "white", fontSize: 24 }}>
+      Awesome App
+    </Text>
+    <MarginBottom size={48} />
+    <Text style={{ color: "white" }}>email</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+    <MarginBottom size={24} />
+    <Text style={{ color: "white" }}>password</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+  </View>
+  <View
+    style={{
+      width: 150,
+      height: 60,
+      padding: 24,
+      borderRadius: 24,
+      borderWidth: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      borderColor: "white",
+    }}
+  >
+    <Text style={{ color: "white" }}>SignUp</Text>
+  </View>
+</View>
+
+</Step>
+
+<Step>
+
+```jsx subtitle="PrimaryButton"
+// PrimaryButton.tsx
+import React from "react";
+import { View, Text } from "react-native";
+
+export const PrimaryButton = ({ label, onPress }) => {
+  return (
+    <TouchableOpacity
+      style={{
+        width: 150,
+        height: 60,
+        padding: 24,
+        borderRadius: 24,
+        borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "white",
+      }}
+    >
+      <Text>{label}</Text>
+    </TouchableOpacity>
+  );
+};
+```
+
+<View
+  style={{
+    width: 320,
+    height: 480,
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 5,
+    padding: 24,
+    alignItems: "center",
+    justifyContent: "space-between",
+  }}
+>
+  <View style={{ alignSelf: "stretch" }}>
+    <Text style={{ color: "white", fontSize: 24 }}>
+      Awesome App
+    </Text>
+    <MarginBottom size={48} />
+    <Text style={{ color: "white" }}>email</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+    <MarginBottom size={24} />
+    <Text style={{ color: "white" }}>password</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+  </View>
+  <View
+    style={{
+      width: 150,
+      height: 60,
+      padding: 24,
+      borderRadius: 24,
+      borderWidth: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      borderColor: "white",
+    }}
+  >
+    <Text style={{ color: "white" }}>SignUp</Text>
+  </View>
+</View>
+
+</Step>
+
+<Step>
+
+```jsx subtitle="PrimaryButton"
+// PrimaryButton.tsx
+import React from "react";
+import { View, Text } from "react-native";
+
+export const PrimaryButton = ({ label, onPress }) => {
+  return (
+    <TouchableOpacity
+      style={{
+        width: 240,
+        height: 60,
+        padding: 24,
+        borderRadius: 24,
+        borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "white",
+      }}
+    >
+      <Text>{label}</Text>
+    </TouchableOpacity>
+  );
+};
+```
+
+<View
+  style={{
+    width: 320,
+    height: 480,
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 5,
+    padding: 24,
+    alignItems: "center",
+    justifyContent: "space-between",
+  }}
+>
+  <View style={{ alignSelf: "stretch" }}>
+    <Text style={{ color: "white", fontSize: 24 }}>
+      Awesome App
+    </Text>
+    <MarginBottom size={48} />
+    <Text style={{ color: "white" }}>email</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+    <MarginBottom size={24} />
+    <Text style={{ color: "white" }}>password</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+  </View>
+  <View
+    style={{
+      width: 240,
+      height: 60,
+      padding: 24,
+      borderRadius: 24,
+      borderWidth: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      borderColor: "white",
+    }}
+  >
+    <Text style={{ color: "white" }}>SignUp</Text>
+  </View>
+</View>
+
+</Step>
+
+<Step>
+
+```jsx subtitle="Login Page"
+// PrimaryButton.tsx
+import React from "react";
+import { View, Text } from "react-native";
+import {
+  Page,
+  LoginForm,
+  Row,
+  PrimaryButton,
+} from "../src";
+
+export const LoginPage = () => {
+  return (
+    <Page>
+      <LoginForm />
+      <Row>
+        <PrimaryButton
+          label={"Register"}
+          onPress={Register}
+        />
+        <PrimaryButton label={"Login"} onPress={Login} />
+      </Row>
+    </Page>
+  );
+};
+```
+
+<View
+  style={{
+    width: 320,
+    height: 480,
+    borderWidth: 1,
+    borderColor: "white",
+    borderRadius: 5,
+    padding: 24,
+    alignItems: "center",
+    justifyContent: "space-between",
+  }}
+>
+  <View style={{ alignSelf: "stretch" }}>
+    <Text style={{ color: "white", fontSize: 24 }}>
+      Awesome App
+    </Text>
+    <MarginBottom size={48} />
+    <Text style={{ color: "white" }}>email</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+    <MarginBottom size={24} />
+    <Text style={{ color: "white" }}>password</Text>
+    <MarginBottom size={24} />
+    <View
+      style={{
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
+      }}
+    />
+  </View>
+  <Row>
+    <View
+      style={{
+        width: 240,
+        height: 60,
+        padding: 24,
+        borderRadius: 24,
+        borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "white",
+      }}
+    >
+      <Text style={{ color: "white" }}>Register</Text>
+    </View>
+    <View
+      style={{
+        width: 240,
+        height: 60,
+        padding: 24,
+        borderRadius: 24,
+        borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        borderColor: "white",
+      }}
+    >
+      <Text style={{ color: "white" }}>Login</Text>
+    </View>
+  </Row>
+</View>
 
 </Step>
 
@@ -514,20 +845,90 @@ exports[`Intro renders correctly 1`] = `
 ---
 
 <Page>
-  <SubHeading>Reg-Suit</SubHeading>
+  <img src={RegSuitLogo} />
 </Page>
 
 ---
 
 <Page>
-  <SubHeading>Storycap</SubHeading>
+  <SubHeading>REG SUIT</SubHeading>
+  <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
+    <Circle size={320}>
+      <Paragraph style={{ color: "white" }}>
+        Compare Images
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>with</Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Parent Branch
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        on Pull Requests
+      </Paragraph>
+    </Circle>
+    <Circle size={320}>
+      <Paragraph style={{ color: "white" }}>
+        Integrate
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>with</Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Storybook, etc.
+      </Paragraph>
+    </Circle>
+    <Circle size={320}>
+      <Paragraph style={{ color: "white" }}>
+        Store
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Screenshots
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        to Cloud
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        (S3, GCS)
+      </Paragraph>
+    </Circle>
+    <Circle size={320}>
+      <Paragraph style={{ color: "white" }}>
+        Automatically
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Create Report
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        on Pull Requests
+      </Paragraph>
+    </Circle>
+  </Row>
 </Page>
 
 ---
 
 <Page>
   <SubHeading>Storybook + React Native Web</SubHeading>
-  <SubHeading>Faster Build</SubHeading>
+  <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
+    <Circle size={320}>
+      <Paragraph style={{ color: "white" }}>
+        Faster Build
+      </Paragraph>
+    </Circle>
+    <Circle size={320}>
+      <Paragraph style={{ color: "white" }}>
+        Easily check
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        for Dark Mode
+      </Paragraph>
+    </Circle>
+    <Circle size={320}>
+      <Paragraph style={{ color: "white" }}>
+        Can be
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        reused for web
+      </Paragraph>
+    </Circle>
+  </Row>
 </Page>
 
 ---

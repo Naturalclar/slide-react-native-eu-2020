@@ -1,33 +1,63 @@
-Visual Regression Test in React Native
-
-Hello everyone, thanks for tuning in. I’m here to talk about the Visual Regression Test in React Native.
-
-First, let me quickly introduce myself. My name is Jesse Katsumata, and I'm working as a front end engineer in a company called CureApp. You can also find me at twitter or github as Naturalclar. I've been working with React Native for the past 2 years or so, and I absolutely love it. I've been trying to keep up with latest updates, and I've been sending small pull requests here and there which eventually got me to join the react-native community github org, where I maintain some of the lean core modules from react-native.
-
-I also love helping out with the open source community. I've been helping out with stuff like translations for the documents, and making bunch of fixes to repositories including react-native.
-
-The company I work for, CureApp, is a leading medtech startup in Tokyo, Japan. In CureApp, we are building a digital therapeucal app using React Native. As our application deals with human's well being, we take testing our apps very seriously. From unit tests of business logic to interaction testing, and testing to make sure our application looks and works the way we intended to, including light and dark mode support, to provide our users with the best experiences possible. And that is where Visual Regression test partially comes in, which I will be covering in this session.
-
-So let's get right into it.
-
-In this session, I’ll first go through what visual regression test is all about. Why it is important, and how it can be done in the react-native land. I'll be introducing different toolings I use to perform visual regression test for our apps. Then I'll conclude this session with an actual demo of visual regression test using those tools.
+Hello everyone, thanks for tuning in. My name is Jesse, and I’m here to talk about the Visual Regression Test in React Native.
 
 ---
 
-Snapshot test in react-native is where you take a component and save the dom structure of it, so that whenever there is a change to the component, the testing framework can report the difference in the dom structure.
+Here's our agenda for this session.
+First, I'll be giving a little introduction of myself, then I'll be going through what visual regression test is all about, and how it can be performed on a react-native project. Then I will conclude the session by showing an actual demo of the visual regression test with a tool called Reg-suit.
+
+If that sounds interesting to you, great, and if not, you can go ahead hit that back button, and it's ok, I won't be offended.
+
+So let's get started.
+
+---
+
+First, let me quickly introduce myself. My name is Jesse Katsumata, and I'm currently working as a front end engineer at a company called CureApp. You can also find me at twitter or github as Naturalclar. I've been developing with React Native for the past 2 years or so, and I absolutely fell in love with it. I've been trying to keep up the with latest updates, and I've been sending small pull requests to the community repos and documents which eventually got me to joining the react-native community, where I maintain some of the lean core modules for react-native.
+
+I also love helping out with other open source communities. I've been helping out with stuff like Japanese translations for the React, Gatsby, and TypeScript documentations, and I've making bunch of minor fixes to several repositories including react-native.
+
+---
+
+The company I work for, CureApp, is a leading medtech startup in Tokyo, Japan. In CureApp, we are building digital therapeucal apps to provide medical treatment with the power of technology. We write everything in TypeScript. That is, we write our web applications using React, our servers are running on node, and even our infrastructures are set up using TypeScript with AWS cdk. And ofcourse, our mobile applications are built using React Native.
+
+---
+
+As our applications deal with human's well being, we take our testing very seriously to make sure our apps work the way we intended to. We perform unit tests for the business logics, and integration tests for our apis, and we perform UI testing for our components. For today's session, I'll be focusing more on the UI testing, which the Visual Regression Test takes part in.
+
+---
+
+UI testing is a test for parts of applications that can be physically seen by the user.
+
+---
+
+For example, if you were to perform an UI test on a Login Screen of an application, you want to make sure that the Login Page contains an input form for user's email, another input form for user to enter their password, and a login button for the user to press once they're done entering their login info. You'd probably also want to verify the login button is disabled if user's email or password is empty, and it's also nice to test that the Login Page shows a loading state while the user awaits for their verification. And we also want to make sure that the login page doesn't look broken, and it looks the way we intended to.
+
+---
+
+There are different aspects of UI testing. That includes tests like Snapshot testing, Interaction Testing, and today's topic, the visual regression testing. Let me briefly go through what each of these tests are.
+
+---
+
+Snapshot test in react or react-native is where you take a component and save the dom structure of it, so that whenever there is a change to the component, the testing framework can report the difference in the dom structure.
+
+---
+
 Interaction test takes a component,
 Both snapshot testing and interaction can be performed with a testing framework like jest or react-native-testing-library.
+
+---
 
 And finally, the visual regression test.
 In visual regression test, you
 
-So what is Visual Regression Test?
+--
 
-To simply put it, visual regression test is a form of UI testing.
-UI Testing is a way to test that each component of an app contains
-There are several different approaches to performing UI testing including but not limited to snapshot testing, interaction testing, and visual regression testing.
+One important thing to note about ui testing, or any testing in general, is that its important to have these tests
 
 —-
+
+Some of our application supports dark mode, which makes our UI testing hold more value, because supporting Dark Mode means that there are twice as many screens to check. Having Visual Regression Tests are
+
+---
 
 Before I get into the visual regression test, first, let me talk about UI testing.
 

@@ -34,6 +34,9 @@ import VisRegSide from "./images/vis-reg-diff-2.png";
 import VisRegReport from "./images/vis-reg-report.png";
 import RegSuitLogo from "./images/reg-suit-logo.jpg";
 import StorybookLogo from "./images/storybook-logo.svg";
+import CureAppTech from "./images/cureapp-tech.png";
+import LightTheme from "./images/light-theme.png";
+import DarkTheme from "./images/dark-theme.png";
 
 import {
   View,
@@ -124,6 +127,49 @@ export const theme = {
 ---
 
 <Page>
+  <SubHeading>Agenda</SubHeading>
+  <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        Introduction
+      </Paragraph>
+    </Circle>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        What is a
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Visual
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Regression
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Test?
+      </Paragraph>
+    </Circle>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        How do I
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        perform it with
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        React Native?
+      </Paragraph>
+    </Circle>
+    <Circle>
+      <Paragraph style={{ color: "white" }}>
+        Demo! 🚀
+      </Paragraph>
+    </Circle>
+  </Row>
+</Page>
+
+---
+
+<Page>
   <SubHeading>Hello! 👋</SubHeading>
   <MarginBottom size={60} />
   <Paragraph>
@@ -206,44 +252,48 @@ export const theme = {
 ---
 
 <Page>
-  <SubHeading>Agenda</SubHeading>
+  <Row>
+    <Center>
+      <View style={{ flex: 1, width: 240, height: 240 }}>
+        <img src={CureAppLogo} />
+      </View>
+    </Center>
+    <Center>
+      <View
+        style={{ flex: 1, width: "100%", height: "50%" }}
+      >
+        <img src={CureAppTech} />
+      </View>
+    </Center>
+  </Row>
+</Page>
+
+---
+
+<Page>
+  <SubHeading>Some of Tests we perform</SubHeading>
   <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
     <Circle>
       <Paragraph style={{ color: "white" }}>
-        What is a
+        Unit Tests
       </Paragraph>
       <Paragraph style={{ color: "white" }}>
-        Visual
-      </Paragraph>
-      <Paragraph style={{ color: "white" }}>
-        Regression
-      </Paragraph>
-      <Paragraph style={{ color: "white" }}>
-        Test?
+        Tests
       </Paragraph>
     </Circle>
     <Circle>
       <Paragraph style={{ color: "white" }}>
-        Why is it
+        Integration
       </Paragraph>
       <Paragraph style={{ color: "white" }}>
-        important?
-      </Paragraph>
-    </Circle>
-    <Circle>
-      <Paragraph style={{ color: "white" }}>
-        How do I
-      </Paragraph>
-      <Paragraph style={{ color: "white" }}>
-        perform it with
-      </Paragraph>
-      <Paragraph style={{ color: "white" }}>
-        React Native?
+        Tests
       </Paragraph>
     </Circle>
-    <Circle>
+    <Circle
+      style={{ backgroundColor: Colors.secondaryColor }}
+    >
       <Paragraph style={{ color: "white" }}>
-        Demo! 🚀
+        UI Tests
       </Paragraph>
     </Circle>
   </Row>
@@ -252,28 +302,7 @@ export const theme = {
 ---
 
 <Page>
-  <Center>
-    <Heading>What is a Visual Regression Test?</Heading>
-  </Center>
-</Page>
-
----
-
-<Page>
-  <Center>
-    <Heading>
-      Visual Regression Test is a form of{" "}
-      <Text style={{ color: Colors.secondaryColor }}>
-        UI Testing
-      </Text>
-    </Heading>
-  </Center>
-</Page>
-
----
-
-<Page>
-  <SubHeading>Some Types of UI Testing</SubHeading>
+  <SubHeading>UI Testing</SubHeading>
   <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
     <Circle size={240}>
       <Paragraph style={{ color: "white" }}>
@@ -829,6 +858,35 @@ export const LoginPage = () => {
         with ease
       </Paragraph>
     </Circle>
+  </Row>
+</Page>
+
+---
+
+<Page>
+  <Row>
+    <Center>
+      <View style={{ flex: 1, width: "100%" }}>
+        <img src={LightTheme} />
+      </View>
+    </Center>
+  </Row>
+</Page>
+
+---
+
+<Page>
+  <Row>
+    <Center>
+      <View style={{ flex: 1, width: "100%" }}>
+        <img src={LightTheme} />
+      </View>
+    </Center>
+    <Center>
+      <View style={{ flex: 1, width: "100%" }}>
+        <img src={DarkTheme} />
+      </View>
+    </Center>
   </Row>
 </Page>
 

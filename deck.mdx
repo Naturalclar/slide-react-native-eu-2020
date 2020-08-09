@@ -37,6 +37,7 @@ import StorybookLogo from "./images/storybook-logo.svg";
 import CureAppTech from "./images/cureapp-tech.png";
 import LightTheme from "./images/light-theme.png";
 import DarkTheme from "./images/dark-theme.png";
+import Branches from "./images/branches.svg";
 
 import {
   View,
@@ -404,7 +405,7 @@ export const theme = {
               fontSize: 24,
             }}
           >
-            Awesome App
+            Awesome App Login
           </Text>
           <MarginBottom size={48} />
           <Text style={{ color: Colors.baseTextColor }}>
@@ -632,6 +633,23 @@ test('User cannot SignUp with wrong credentials', async () => {
 
 <Page>
   <SubHeading>Visual Regression Testing</SubHeading>
+  <MarginBottom size={60} />
+  <Center>
+    <View
+      style={{
+        flex: 1,
+        width: "80%",
+      }}
+    >
+      <img src={Branches} />
+    </View>
+  </Center>
+</Page>
+
+---
+
+<Page>
+  <SubHeading>Visual Regression Testing</SubHeading>
   <Row>
     <Center>
       <View
@@ -707,7 +725,7 @@ export const SignUpPage = () => {
 >
   <View style={{ alignSelf: "stretch" }}>
     <Text style={{ color: "white", fontSize: 24 }}>
-      Awesome App
+      Awesome App Signup
     </Text>
     <MarginBottom size={48} />
     <Text style={{ color: "white" }}>email</Text>
@@ -787,7 +805,7 @@ export const PrimaryButton = ({ label, onPress }) => {
 >
   <View style={{ alignSelf: "stretch" }}>
     <Text style={{ color: "white", fontSize: 24 }}>
-      Awesome App
+      Awesome App Signup
     </Text>
     <MarginBottom size={48} />
     <Text style={{ color: "white" }}>email</Text>
@@ -867,7 +885,7 @@ export const PrimaryButton = ({ label, onPress }) => {
 >
   <View style={{ alignSelf: "stretch" }}>
     <Text style={{ color: "white", fontSize: 24 }}>
-      Awesome App
+      Awesome App Signup
     </Text>
     <MarginBottom size={48} />
     <Text style={{ color: "white" }}>email</Text>
@@ -949,7 +967,7 @@ export const LoginPage = () => {
 >
   <View style={{ alignSelf: "stretch" }}>
     <Text style={{ color: "white", fontSize: 24 }}>
-      Awesome App
+      Awesome App Login
     </Text>
     <MarginBottom size={48} />
     <Text style={{ color: "white" }}>email</Text>
@@ -1102,6 +1120,28 @@ export const LoginPage = () => {
 ---
 
 <Page>
+  <SubHeading>Why is it Important?</SubHeading>
+  <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
+    <Circle size={360}>
+      <Paragraph style={{ color: "white" }}>
+        Reduce QA
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>Time</Paragraph>
+    </Circle>
+    <Circle size={360}>
+      <Paragraph style={{ color: "white" }}>
+        Automate
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        Everything
+      </Paragraph>
+    </Circle>
+  </Row>
+</Page>
+
+---
+
+<Page>
   <Center>
     <Heading>
       How do I perform it with React Native?
@@ -1134,11 +1174,7 @@ export const LoginPage = () => {
     </Circle>
     <Circle size={320}>
       <Paragraph style={{ color: "white" }}>
-        Integrate
-      </Paragraph>
-      <Paragraph style={{ color: "white" }}>with</Paragraph>
-      <Paragraph style={{ color: "white" }}>
-        Storybook, etc.
+        Easy Setup
       </Paragraph>
     </Circle>
     <Circle size={320}>

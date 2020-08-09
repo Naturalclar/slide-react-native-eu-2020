@@ -38,7 +38,7 @@ As you can see, there are many different aspects of UI testing. And it can be ca
 
 ## (5:16)
 
-Snapshot test in react or react-native is where you take a component and save the dom structure of it, so that whenever there is a change to the component, the testing framework can report the difference it made in the dom structure. Snapshot tests are very useful, when you want to see that the particular change you're making only affects the specific page you're trying to change, and not affecting other pages unexpectedly.
+Snapshot test in react or react-native is where you take a component and save the dom structure of it, so that whenever there is a change to the component, the testing framework can report the difference it made in the dom structure. Snapshot tests are very useful, when you want to see that the particular change you're making only affects the specifi page you're trying to change, and not affecting other pages unexpectedly.
 
 ## (5:47)
 
@@ -92,7 +92,7 @@ But you fail to realize that primary button was also used in the login page of t
 
 When you make pull request the only changed file is the primary button component, so it maybe hard to tell from the first glance that the layout of the login page has change unexpectedly.
 
-If you have a visual regression test set up, it will create a report for the sign up page, as well as the login page, so you would have been able to tell that the layout of the login page has been broken.
+If you have a visual regression test set up, it will create a report for the sign up page, as well as the login page, so you would have been able to tell that the layout of the logi page has been broken.
 
 ## (11:12)
 

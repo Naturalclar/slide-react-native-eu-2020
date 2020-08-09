@@ -5,23 +5,23 @@ Hello everyone, thanks for tuning in. My name is Jesse, and I’m here to talk a
 Here's our agenda for this session.
 First, I'll be giving a little introduction of myself, then I'll be going through what visual regression test is all about, and how it can be performed on a react-native project. Then I will conclude the session by showing an actual demo of the visual regression test using a tool called Reg-suit.
 
-Hopefully that sounds interesting to you. So let's get started.
+Hopefully that sounds interesting to you. Let's get started.
 
 ---
 
 First, let me quickly introduce myself. Again, my name is Jesse Katsumata, and I'm currently living in Japan, working as a front end engineer at a company called CureApp. You can also find me at twitter or github as Naturalclar.
 
-I've been developing with React Native for the past 2 years or so, and I absolutely fell in love with it. I've been keeping up the with latest updates, and I've been sending small pull requests to the community repos and documents which eventually got me to joining the react-native community, where I maintain some of the lean core modules for react-native.
+I've been developing with React Native for the past 2 years or so, and I absolutely fell in love with it. I've been keeping up the with latest updates, and I've been sending fixes to the community repos and documents which eventually got me to joining the react-native community, where I maintain some of the lean core modules for react-native.
 
-I also love helping out with other open source communities. I've been helping out with stuff like Japanese translations for the React, Gatsby.js, and TypeScript documentations, and I've making bunch of fixes to several repositories including react-native.
-
----
-
-The company I work for, CureApp, is a leading medtech startup in Tokyo, Japan. In CureApp, we are building digital therapeucal apps to provide medical treatment to people, with the power of technology. In CureApp, we write everything in TypeScript. That is, we write our web applications using React, our servers are running on node.js, and even our infrastructures are set up using TypeScript with AWS CDK. And ofcourse, our mobile applications are built using React Native.
+I also love participating in other open source communities in general. It's a great way to learn the internals of a project and expanding my knowledge while helping others. I've been helping out with stuff like Japanese translations of documents for libraries like React, Gatsby.js, and TypeScript, and I've been making small fixes to several repositories including react-native.
 
 ---
 
-As our applications deal with human's well being, we take our testing very seriously to make sure our apps work the way we intended to. I've mentioned that everything is written in TypeScript, so all our code base are Type safe. We also perform unit tests for the business logics, and integration tests for our apis, and we perform UI testing for our pages and components. For today's session, I'll be focusing more on the UI testing, which the Visual Regression Test takes part in.
+The company I work for, CureApp, is a leading medtech startup in Tokyo, Japan. In CureApp, we are building digital therapeucal apps to provide medical treatment, with the power of technology. Our engineers, we write everything in TypeScript. That is, we write our web applications using React, our servers are running on node.js, and even our infrastructures are set up using TypeScript with AWS CDK. And of course, our mobile applications are built using React Native.
+
+---
+
+As our applications deal with human's well being, we take our testing very seriously to make sure our apps work the way we intended to. I've mentioned that everything is written in TypeScript, so all our code bases are Type safe. We also perform unit tests for the business logics, and integration tests for our apis, and we perform UI testing for our pages and components. For today's session, I'll be focusing more on the UI testing, which the Visual Regression Test takes part in.
 
 ---
 
@@ -52,18 +52,54 @@ Both snapshot testing and interaction testing can be performed in react-native p
 
 And finally, let me talk about the visual regression test.
 Unlike the previously mentioned tests which deals with more of a logic part of the code, the visual regression test solely focuses on how the component visually looks.
-When a visual regression test is setup for your project, every time there a pull request that contains a change in the component, it takes a screenshot of the component, and compares it to how it looked before the change. Most visual regression testing tools has an option to display the component side by side to see the difference, or it can also stack the two screenshots, and highlight only the part that has been changed, so you can tell exactly where the component has changed.
 
-That's the basic idea of a visual regression test.
+When setting up the visual regression test, you take screenshots of all the components that you want to use as a reference, and everytime there is a change in the component, you take new screenshots to compare it with the reference.
 
----
-
-So what makes the Visual Regression Test, or UI Testing in general, so important?
-I mean, if you just made your component, then it obviously looks and works the way you intended to be, so why would you bother adding a tool that checks what you just made?
+What's displayed on here is an example of test reports generated by the visual regression test.
+You can see that it showing the diffs of two components, letting you know exactly where the changes were, and they can also be seen side by side for comparison.
 
 ---
 
-Well, what's true about testings in general, is that these tests exists to make sure that what you've made works, and that it continues to work the way you intended to, even after going through many changes in your code. As your projects gets bigger and bigger, and people working on the code get's switched around, it gets harder and harder to keep track of all the effects that will be caused bt the change in your code. Also, one day, you may feel like your code base is getting a little outdated, and you may want to refactor out your codes. You may also be using some component library from third-parties, you'd like to upgrade it to the latest version, but the library may contain breaking changes to your code, so you'd feel uneasy about blindly making an update. Having test cases set up means that you can make your changes to your code confidently. \*
+Depending on the visual regression tools you use, some of them may create a report like what's shown here, every time a pull request is made. Every report shows the number of components that has changed from the parent branch, number of new components or deleted components if there are any, and number of components that remained unchanged.
+
+If the pull request is approved and merged, it updates the new screenshot to be the new reference.
+
+By having these reports, you will be able to prevent any unexpected change that goes into the component.
+
+---
+
+Let me show you a contrived example of how visual regression test may help.
+
+Here's yet again a sample signup page. For your app. Let’s say you have a button in your signup page that you feel is a little small, so you’d like to make it a little bigger, so the user will have an easier time pressing the button.
+
+---
+
+Since the signup page is using a Primary Button component, which takes in a label and display the button, you go in to the Primary button component, and see that it has the width of 150.
+
+---
+
+So wou change the width of the button to something bigger like 240, and voila, your signup page looks the way you want it to be. You may commit the change, feel good about yourself, and get ready to go home.
+
+---
+
+But you fail to realize that primary button was also used in the login page of the app, which has login button and a register button side by side. Since both of them were using the primary button component that you've changed, now the buttons won't fit on the screen.
+
+When you make pull request the only changed file is the primary button component, so it maybe hard to tell from the first glance that the layout of the login page has change unexpectedly.
+
+If you have a visual regression test set up, it will create a report for the sign up page, as well as the login page, so you would have been able to tell that the layout of the login page has been broken.
+
+---
+
+That past example can be achieved from a snapshot test as well. You make a change in the primary button component, and that will cause snapshots of both sign up page, and the log in page to update, so you can catch that you've accidentally changed the layout of the login page.
+
+But, one thing to note about visual regression test that makes itself different from a snapshot test, is that visual regression test doesn't care about how the component was implemented. That means the visual regression test can prevent false positives created by a snapshot test.
+
+In a snapshot test, if you were to make a refactor in your components, like changing your components from a class component to a function component, it will require you to update the snapshot, as the dom structure of the component has changed, even though the two component may look identical. In another example, if you're using some third-party component library, and you want to upgrade the library to the latest version, all your snapshot tests of components that depended on the third-party library may require updating the snapshot, but you have no way of knowing whether the component has changed visually or not.
+
+Having visual regression test will allow you to confidently upgrade your component library, because it takes a screenshot of how the component actually looks after the upgrade.
+
+---
+
 Also, by having these tests set up, you can have your apps support dark mode with confidence.
 
 —-
@@ -73,27 +109,6 @@ Let me talk a little about supporting dark mode for your application. With the n
 ---
 
 But supporting dark mode means that there are simply twice as many possible screens to verify in your app. You may forget to apply font colors for your dark mode in certain parts of your screen, making that text unreadable in dark mode. By having visual regression test for both light mode and dark mode will allow you to catch those mistakes quickly.
-
----
-
-Here's an example of visual regression test. Let’s say you have a button in your signup page that you feel is a little small, so you’d like to make it a little bigger. So the user will have an easier time pressing the button.
-
----
-
-Since the signup page is using a Primary Button component, which takes in a label and display the button, you might go in to the Primary button component, and see that it has the width of 150.
-
----
-
-You change the width of the button to something bigger like 240, and voila, your signup page looks the way you want it to be. You may commit the change, feel good about yourself, and get ready to go home.
-
----
-
-But you fail to realize that primary button was also used in the login page of the app, which has login button and a register button side by side. Since both of them were using the primary button component that you've changed, now the buttons won't fit on the screen.
-
-Your pull request you've made only contains change in the primary button component, so it maybe hard to tell from the first glance that the layout of the login page has change unexpectedly.
-
-That may have been a simple example that are unlikely to occur in a real life situation, but as the project gets bigger, small changes like that will be more likely to occur.
-So that's when having a visual regression test will help, as the CI will automatically catches cases like that.
 
 ---
 

@@ -632,50 +632,44 @@ test('User cannot SignUp with wrong credentials', async () => {
 
 <Page>
   <SubHeading>Visual Regression Testing</SubHeading>
-  <MarginBottom size={60} />
-  <View style={{ position: "relative", flex: 1 }}>
-    <View
-      style={{
-        position: "absolute",
-        height: 240,
-        width: '20%',
-        top: "0",
-        left: "0",
-      }}
-    >
-      <img src={VisRegDiff} width="50%" />
-    </View>
-    <View
-      style={{
-        position: "absolute",
-        height: 240,
-        width: '50%',
-        top: "0",
-        right: "10%",
-      }}
-    >
-      <img src={VisRegSide} width="50%" />
-    </View>
-    <View
-      style={{
-        position: "absolute",
-        height: 240,
-        width: '35%',
-        left: "0",
-        bottom: "10%",
-      }}
-    >
-      <img src={VisRegReport} width="50%" />
-    </View>
-
-  </View>
+  <Row>
+    <Center>
+      <View
+        style={{
+          flex: 1,
+          width: "65%",
+        }}
+      >
+        <img src={VisRegDiff} />
+      </View>
+    </Center>
+    <Center style={{ flex: 2 }}>
+      <View
+        style={{
+          flex: 1,
+          width: "60%",
+        }}
+      >
+        <img src={VisRegSide} />
+      </View>
+    </Center>
+  </Row>
 </Page>
 
 ---
 
 <Page>
+  <SubHeading>Visual Regression Testing</SubHeading>
+  <MarginBottom size={60} />
   <Center>
-    <Heading>Why is it important?</Heading>
+    <View
+      style={{
+        flex: 1,
+        width: "80%",
+      }}
+    >
+      <img src={VisRegReport} />
+    </View>
   </Center>
 </Page>
 
@@ -1019,7 +1013,15 @@ export const LoginPage = () => {
   <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
     <Circle size={360}>
       <Paragraph style={{ color: "white" }}>
-        Upgrade
+        Prevent
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        False Positives
+      </Paragraph>
+    </Circle>
+    <Circle size={360}>
+      <Paragraph style={{ color: "white" }}>
+        Refactor/Upgrade
       </Paragraph>
       <Paragraph style={{ color: "white" }}>
         Component Library
@@ -1043,9 +1045,11 @@ export const LoginPage = () => {
 ---
 
 <Page>
+  <SubHeading>Supporting Dark Mode</SubHeading>
+  <MarginBottom size={60} />
   <Row>
     <Center>
-      <View style={{ flex: 1, width: "100%" }}>
+      <View style={{ flex: 1, width: "80%" }}>
         <img src={LightTheme} />
       </View>
     </Center>
@@ -1055,18 +1059,44 @@ export const LoginPage = () => {
 ---
 
 <Page>
+  <SubHeading>Supporting Dark Mode</SubHeading>
+  <MarginBottom size={60} />
   <Row>
     <Center>
-      <View style={{ flex: 1, width: "100%" }}>
+      <View style={{ flex: 1, width: "80%" }}>
         <img src={LightTheme} />
       </View>
     </Center>
     <Center>
-      <View style={{ flex: 1, width: "100%" }}>
+      <View style={{ flex: 1, width: "80%" }}>
         <img src={DarkTheme} />
       </View>
     </Center>
   </Row>
+  <View
+    style={{
+      position: "absolute",
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+    }}
+  >
+    <Circle size={300}>
+      <Paragraph style={{ color: "white" }}>
+        2x as many
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        screens
+      </Paragraph>
+      <Paragraph style={{ color: "white" }}>
+        to check!
+      </Paragraph>
+    </Circle>
+  </View>
 </Page>
 
 ---

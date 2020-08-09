@@ -302,6 +302,180 @@ export const theme = {
 ---
 
 <Page>
+  <Center>
+    <Heading>UI Testing</Heading>
+  </Center>
+</Page>
+
+---
+
+<Page>
+  <Row>
+    <View
+      style={{ width: "100%", height: "100%", flex: 1 }}
+    >
+      <SubHeading>UI Testing</SubHeading>
+      <ul>
+        <li
+          style={{
+            color: Colors.baseTextColor,
+            marginBottom: 16,
+          }}
+        >
+          it..
+        </li>
+        <ul>
+          <li
+            style={{
+              color: Colors.baseTextColor,
+              marginBottom: 16,
+            }}
+          >
+            Displays an email input form
+          </li>
+          <li
+            style={{
+              color: Colors.baseTextColor,
+              marginBottom: 16,
+            }}
+          >
+            Displays a password input form
+          </li>
+          <li
+            style={{
+              color: Colors.baseTextColor,
+              marginBottom: 16,
+            }}
+          >
+            Displays a Login Button
+          </li>
+          <li
+            style={{
+              color: Colors.baseTextColor,
+              marginBottom: 16,
+            }}
+          >
+            Has disabled button if a form is empty
+          </li>
+          <li
+            style={{
+              color: Colors.baseTextColor,
+              marginBottom: 16,
+            }}
+          >
+            Displays loading on network request
+          </li>
+          <li
+            style={{
+              color: Colors.secondaryColor,
+              marginBottom: 16,
+            }}
+          >
+            Looks the way you intended
+          </li>
+          <li
+            style={{
+              color: Colors.baseTextColor,
+              marginBottom: 16,
+            }}
+          >
+            etc...
+          </li>
+        </ul>
+      </ul>
+    </View>
+    <Center>
+      <View
+        style={{
+          width: 320,
+          height: 480,
+          borderWidth: 1,
+          borderColor: Colors.baseTextColor,
+          borderRadius: 5,
+          padding: 24,
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <View style={{ alignSelf: "stretch" }}>
+          <Text
+            style={{
+              color: Colors.baseTextColor,
+              fontSize: 24,
+            }}
+          >
+            Awesome App
+          </Text>
+          <MarginBottom size={48} />
+          <Text style={{ color: Colors.baseTextColor }}>
+            email
+          </Text>
+          <MarginBottom size={24} />
+          <View
+            style={{
+              borderBottomColor: Colors.baseTextColor,
+              borderBottomWidth: 1,
+            }}
+          />
+          <MarginBottom size={24} />
+          <Text style={{ color: Colors.baseTextColor }}>
+            password
+          </Text>
+          <MarginBottom size={24} />
+          <View
+            style={{
+              borderBottomColor: Colors.baseTextColor,
+              borderBottomWidth: 1,
+            }}
+          />
+        </View>
+        <View>
+          <Row>
+            <View
+              style={{
+                width: 240,
+                height: 60,
+                padding: 24,
+                borderRadius: 24,
+                borderWidth: 1,
+                alignItems: "center",
+                justifyContent: "center",
+                borderColor: Colors.baseTextColor,
+              }}
+            >
+              <Text style={{ color: Colors.baseTextColor }}>
+                Login
+              </Text>
+            </View>
+          </Row>
+          <MarginBottom size={16} />
+          <Row>
+            <View
+              style={{
+                width: 240,
+                height: 60,
+                padding: 24,
+                borderRadius: 24,
+                borderWidth: 1,
+                alignItems: "center",
+                justifyContent: "center",
+                borderColor: Colors.baseTextColor,
+              }}
+            >
+              <Text style={{ color: Colors.baseTextColor }}>
+                Login with SNS
+              </Text>
+            </View>
+          </Row>
+        </View>
+      </View>
+    </Center>
+  </Row>
+</Page>
+
+---
+
+<Page>
   <SubHeading>UI Testing</SubHeading>
   <Row style={{ flex: 1, justifyContent: "space-evenly" }}>
     <Circle size={240}>
@@ -332,6 +506,11 @@ export const theme = {
       </Paragraph>
       <Paragraph style={{ color: "white" }}>
         Testing
+      </Paragraph>
+    </Circle>
+    <Circle size={240}>
+      <Paragraph style={{ color: "white" }}>
+        etc...
       </Paragraph>
     </Circle>
   </Row>
